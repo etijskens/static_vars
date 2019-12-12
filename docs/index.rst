@@ -7,7 +7,7 @@ Welcome to static_vars's documentation!
    :caption: Contents:
 
    readme
-   api
+#   api
 
 ##################
 Indices and tables

@@ -1,20 +1,19 @@
 # -*- coding: utf-8 -*-
 """
 Package static_vars
-=======================================
+===================
 
-A 'hello world' example.
+A decorator for adding static variables to a function.
+see https://stackoverflow.com/questions/279561/what-is-the-python-equivalent-of-static-variables-inside-a-function
 """
-__version__ = "0.0.0"
+__version__ = "0.2.0"
 
 
-def hello(who='world'):
-    """'Hello world' method.
-
-    :param str who: whom to say hello to
-    :returns: a string
-    """
-    result = "Hello " + who
-    return result
+def static_vars(**kwargs):
+    def decorate(func):
+        for k in kwargs:
+            setattr(func, k, kwargs[k])
+        return func
+    return decorate
 
 # eof
